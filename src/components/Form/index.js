@@ -1,11 +1,12 @@
 import SubmitButton from "../SubmitButton";
 
-export default function Form(onAddActivity) {
+export default function Form({ onAddActivity }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     onAddActivity(data);
+    console.log(data);
     event.target.reset();
   }
 
@@ -18,7 +19,7 @@ export default function Form(onAddActivity) {
       <input
         type="checkbox"
         id="good-weather-activity"
-        name="good-weather-activity"
+        name="isForGoodWeather"
       />
       <SubmitButton />
     </form>
