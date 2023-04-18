@@ -6,13 +6,12 @@ export default function Form({ onAddActivity }) {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     onAddActivity(data);
-    console.log(data);
     event.target.reset();
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Add ne Activity</h1>
+      <h1>Add new Activity</h1>
       <label htmlFor="name">Name</label>
       <input type="text" id="name" name="name" />
       <label htmlFor="good-weather-activity">Good weather activity</label>
