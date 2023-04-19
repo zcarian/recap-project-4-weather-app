@@ -1,0 +1,11 @@
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.2em 0.4em;
+  border: rgb(251, 246, 246) solid 0.1em;
+  border-radius: 30px;
+  margin-top: 1em;
+  align-items: center;
+  width: 100%;
+}

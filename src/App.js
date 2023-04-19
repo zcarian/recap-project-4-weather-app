@@ -1,78 +1,42 @@
 import "./App.css";
 import React from "react";
 import Form from "./components/Form";
-import { useState, useEffect } from "react";
-import { uid } from "uid";
 import List from "./components/List";
-import useLocalStorageState from "use-local-storage-state";
 import ShowAllButton from "./components/ShowAllButton";
+import useFetch from "./utils/useFetch.js";
+import useActivities from "./utils/useActivities";
+import useShowAll from "./utils/useShowAll";
+import FetchedWeather from "./components/FetchedWeather/FetchedWeather";
 
-const initialActivities = [
-  {
-    id: 1,
-    name: "Go to the beach",
-    isForGoodWeather: true,
-  },
-  {
-    id: 2,
-    name: "Go to the mountains",
-    isForGoodWeather: true,
-  },
-  {
-    id: 3,
-    name: "Go to the cinema",
-    isForGoodWeather: false,
-  },
-];
 function App() {
-  const [activities, setActivities] = useLocalStorageState("activities", {
-    defaultValue: initialActivities,
-  });
-  const [isGoodWeather, setIsGoodWeather] = useState();
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, handleShowAllButton] = useShowAll();
 
-  async function fetchWeather() {
-    try {
-      const response = await fetch(
-        "https://example-apis.vercel.app/api/weather"
-      );
-      const data = await response.json();
-      console.log("data fetched");
-      setIsGoodWeather(data.isGoodWeather);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  useEffect(() => {
-    fetchWeather();
-    const interval = setInterval(() => {
-      fetchWeather();
-    }, 5000);
-    return () => clearInterval(interval);
-  });
+  const [isGoodWeather, temperature, location, condition] = useFetch();
 
-  function handleAddActivity(newActivity) {
-    setActivities([{ id: uid(), ...newActivity }, ...activities]);
-  }
+  const [activities, handleAddActivity, handleDeleteActivity] = useActivities();
 
-  function handleDeleteButton(id) {
-    setActivities(activities.filter((activity) => activity.id !== id));
-  }
-
-  function handleShowAllButton() {
-    setShowAll(!showAll);
-  }
   return (
-    <>
-      <List
-        activities={activities}
-        onDeleteButton={handleDeleteButton}
-        isGoodWeather={isGoodWeather}
-        ifShowAll={showAll}
+    <main>
+      <FetchedWeather
+        temperature={temperature}
+        location={location}
+        condition={condition}
       />
-      <ShowAllButton onShowAllButton={handleShowAllButton} />
+
+      <section className="entries">
+        <List
+          activities={activities}
+          onDeleteButton={handleDeleteActivity}
+          isGoodWeather={isGoodWeather}
+          ifShowAll={showAll}
+        />
+        <ShowAllButton
+          onShowAllButton={handleShowAllButton}
+          ifShowAll={showAll}
+        />
+      </section>
       <Form onAddActivity={handleAddActivity} />
-    </>
+    </main>
   );
 }
 

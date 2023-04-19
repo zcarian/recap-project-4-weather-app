@@ -1,0 +1,9 @@
+.entries h1 {
+  padding: 2em;
+}
+
+.entries ul {
+  align-self: center;
+  padding: 2rem;
+  width: 90%;
+}
