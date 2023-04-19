@@ -6,6 +6,7 @@ import { uid } from "uid";
 import List from "./components/List";
 import useLocalStorageState from "use-local-storage-state";
 import ShowAllButton from "./components/ShowAllButton";
+import ListHeader from "./components/ListHeader";
 
 const initialActivities = [
   {
@@ -45,11 +46,11 @@ function App() {
   }
   useEffect(() => {
     fetchWeather();
-    const interval = setInterval(() => {
-      fetchWeather();
-    }, 5000);
-    return () => clearInterval(interval);
-  });
+    // const interval = setInterval(() => {
+    //   fetchWeather();
+    // }, 5000);
+    // return () => clearInterval(interval);
+  }, []);
 
   function handleAddActivity(newActivity) {
     setActivities([{ id: uid(), ...newActivity }, ...activities]);
@@ -64,14 +65,19 @@ function App() {
   }
   return (
     <>
-      <List
-        activities={activities}
-        onDeleteButton={handleDeleteButton}
-        isGoodWeather={isGoodWeather}
-        ifShowAll={showAll}
-      />
-      <ShowAllButton onShowAllButton={handleShowAllButton} />
-      <Form onAddActivity={handleAddActivity} />
+      <main>
+        <section className="entries">
+          <ListHeader isGoodWeather={isGoodWeather} />
+          <List
+            activities={activities}
+            onDeleteButton={handleDeleteButton}
+            isGoodWeather={isGoodWeather}
+            ifShowAll={showAll}
+          />
+          <ShowAllButton onShowAllButton={handleShowAllButton} />
+        </section>
+        <Form onAddActivity={handleAddActivity} />
+      </main>
     </>
   );
 }
