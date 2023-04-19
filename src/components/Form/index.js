@@ -1,3 +1,4 @@
+import "./form.css";
 import SubmitButton from "../SubmitButton";
 
 export default function Form({ onAddActivity }) {

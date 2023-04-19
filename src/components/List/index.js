@@ -1,3 +1,4 @@
+import "./list.css";
 import ListElement from "../ListElement";
 
 export default function List({ activities, isGoodWeather, onDeleteButton }) {

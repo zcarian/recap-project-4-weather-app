@@ -1,3 +1,4 @@
+import "./listElement.css";
 import DeleteButton from "../DeleteButton";
 
 export default function ListElement({ activity, onDeleteButton }) {
