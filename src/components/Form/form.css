@@ -3,9 +3,10 @@ form {
   flex-direction: column;
   width: 80%;
   margin-top: 3em;
-  border: solid black 0.1em;
+  border: solid transparent 0.1em;
   border-radius: 30px;
   align-items: center;
+  background-color: #6a9ed6;
 }
 
 form h2 {

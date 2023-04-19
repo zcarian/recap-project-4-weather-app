@@ -11,19 +11,20 @@ main {
   justify-content: center;
   max-width: 600px;
   min-height: 100vh;
-  /* Here starts when is good weather */
 
-  background-color: #72a2c0;
+  background-color: #73b0d5;
   color: white;
+  position: relative;
 }
 
 .entries {
   display: flex;
   flex-direction: column;
   width: 80%;
-  border: 0.1em solid black;
+  border: 0.1em solid transparent;
   border-radius: 30px;
   margin-top: 3em;
+  background-color: #6a9ed6;
 }
 
 .weatherInfo {
@@ -37,9 +38,11 @@ main {
 
 .weatherInfo--good {
   background: url("../public/Gifs/dandelion-nature.gif");
+  background-repeat: round;
 }
 .weatherInfo--bad {
   background: url("../public/Gifs/rain-bad-weather.gif");
+  background-repeat: round;
 }
 
 .weatherInfo h2 {
