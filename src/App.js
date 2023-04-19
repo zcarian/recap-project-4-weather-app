@@ -35,15 +35,19 @@ function App() {
         "https://example-apis.vercel.app/api/weather/rainforest"
       );
       const data = await response.json();
+      console.log("data fetched");
       setIsGoodWeather(data.isGoodWeather);
     } catch (error) {
       console.log(error);
     }
   }
-
   useEffect(() => {
     fetchWeather();
-  }, []);
+    const interval = setInterval(() => {
+      fetchWeather();
+    }, 5000);
+    return () => clearInterval(interval);
+  });
 
   function handleAddActivity(newActivity) {
     setActivities([{ id: uid(), ...newActivity }, ...activities]);
