@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { uid } from "uid";
 import List from "./components/List";
 import useLocalStorageState from "use-local-storage-state";
+import ShowAllButton from "./components/ShowAllButton";
 
 const initialActivities = [
   {
@@ -28,11 +29,12 @@ function App() {
     defaultValue: initialActivities,
   });
   const [isGoodWeather, setIsGoodWeather] = useState();
+  const [showAll, setShowAll] = useState(false);
 
   async function fetchWeather() {
     try {
       const response = await fetch(
-        "https://example-apis.vercel.app/api/weather/rainforest"
+        "https://example-apis.vercel.app/api/weather"
       );
       const data = await response.json();
       console.log("data fetched");
@@ -56,13 +58,19 @@ function App() {
   function handleDeleteButton(id) {
     setActivities(activities.filter((activity) => activity.id !== id));
   }
+
+  function handleShowAllButton() {
+    setShowAll(!showAll);
+  }
   return (
     <>
       <List
         activities={activities}
         onDeleteButton={handleDeleteButton}
         isGoodWeather={isGoodWeather}
+        ifShowAll={showAll}
       />
+      <ShowAllButton onShowAllButton={handleShowAllButton} />
       <Form onAddActivity={handleAddActivity} />
     </>
   );
