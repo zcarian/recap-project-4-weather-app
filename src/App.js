@@ -4,6 +4,7 @@ import Form from "./components/Form";
 import { useState, useEffect } from "react";
 import { uid } from "uid";
 import List from "./components/List";
+import useLocalStorageState from "use-local-storage-state";
 
 const initialActivities = [
   {
@@ -23,7 +24,9 @@ const initialActivities = [
   },
 ];
 function App() {
-  const [activities, setActivities] = useState(initialActivities);
+  const [activities, setActivities] = useLocalStorageState("activities", {
+    defaultValue: initialActivities,
+  });
   const [isGoodWeather, setIsGoodWeather] = useState();
 
   async function fetchWeather() {
