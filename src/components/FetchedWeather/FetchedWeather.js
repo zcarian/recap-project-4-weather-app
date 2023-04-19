@@ -12,7 +12,7 @@ export default function FetchedWeather({
 
       <section
         className={`weatherInfo ${
-          isGoodWeather ? "weatherInfo--good" : "weatherInfo--bad"
+          isGoodWeather ? "weatherInfo--bad" : "weatherInfo--good"
         }`}
       >
         <h2>{temperature}°</h2>

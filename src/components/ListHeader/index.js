@@ -4,8 +4,8 @@ export default function ListHeader({ isGoodWeather }) {
     <header className="header">
       <h1>
         {isGoodWeather && isGoodWeather
-          ? "The weather is awesome! go outside and:"
-          : "Bad weather outside! Here is what you can do now:"}
+          ? "Bad weather outside! Here is what you can do now:"
+          : "The weather is awesome! go outside and:"}
       </h1>
     </header>
   );
