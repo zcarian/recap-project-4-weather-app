@@ -33,6 +33,7 @@ function App() {
   const [showAll, setShowAll] = useState(false);
   const [location, setLocation] = useState("");
   const [temperature, setTemperature] = useState("");
+  const [condition, setCondition] = useState("");
 
   async function fetchWeather() {
     try {
@@ -44,6 +45,7 @@ function App() {
       setIsGoodWeather(data.isGoodWeather);
       setTemperature(data.temperature);
       setLocation(data.location);
+      setCondition(data.condition);
     } catch (error) {
       console.log(error);
     }
@@ -73,8 +75,10 @@ function App() {
         <header className="header">
           <ListHeader isGoodWeather={isGoodWeather} />
         </header>
-        <section>
+        <section className="weatherInfo">
           <h2>{temperature}°</h2>
+          <span>{condition}</span>
+
           <p>Location {location}</p>
         </section>
 
