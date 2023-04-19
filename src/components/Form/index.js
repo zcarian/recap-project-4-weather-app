@@ -7,7 +7,6 @@ export default function Form({ onAddActivity }) {
     const data = Object.fromEntries(formData);
     data.isForGoodWeather = Boolean(data.isForGoodWeather);
     onAddActivity(data);
-    console.log("data: ", data);
     event.target.reset();
   }
   return (

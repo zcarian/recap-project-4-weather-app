@@ -1,3 +1,7 @@
-export default function ShowAllButton({ onShowAllButton }) {
-  return <button onClick={onShowAllButton}>Show all</button>;
+export default function ShowAllButton({ onShowAllButton, ifShowAll }) {
+  return (
+    <button onClick={onShowAllButton}>
+      {ifShowAll ? "Show less" : "Show all"}
+    </button>
+  );
 }
