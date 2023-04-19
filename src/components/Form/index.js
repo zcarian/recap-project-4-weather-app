@@ -9,12 +9,10 @@ export default function Form({ onAddActivity }) {
     onAddActivity(data);
     console.log("data: ", data);
     event.target.reset();
-
-    // console.log("data is checked:", data.isForGoodWeather);
   }
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Add new Activity</h1>
+      <h2>Add new Activity</h2>
       <label htmlFor="name">Name</label>
       <input type="text" id="name" name="name" />
       <label htmlFor="good-weather-activity">Good weather activity</label>

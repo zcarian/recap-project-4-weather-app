@@ -32,7 +32,7 @@ function App() {
   async function fetchWeather() {
     try {
       const response = await fetch(
-        "https://example-apis.vercel.app/api/weather"
+        "https://example-apis.vercel.app/api/weather/rainforest"
       );
       const data = await response.json();
       setIsGoodWeather(data.isGoodWeather);
