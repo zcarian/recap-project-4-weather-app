@@ -21,7 +21,7 @@ form input {
   align-self: center;
   margin: 2em;
   padding: 1em;
-  border: solid 0.1em black;
+  border: solid 0.1em transparent;
   border-radius: 10px;
 }
 
@@ -31,4 +31,9 @@ form input {
   justify-content: space-between;
   align-items: center;
   width: 80%;
+}
+
+.checkbox input {
+  transform: scale(2);
+  border: transparent;
 }

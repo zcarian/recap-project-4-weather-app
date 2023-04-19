@@ -31,6 +31,8 @@ function App() {
   });
   const [isGoodWeather, setIsGoodWeather] = useState();
   const [showAll, setShowAll] = useState(false);
+  const [location, setLocation] = useState("");
+  const [temperature, setTemperature] = useState("");
 
   async function fetchWeather() {
     try {
@@ -38,8 +40,10 @@ function App() {
         "https://example-apis.vercel.app/api/weather"
       );
       const data = await response.json();
-      console.log("data fetched");
+      console.log("data fetched", data);
       setIsGoodWeather(data.isGoodWeather);
+      setTemperature(data.temperature);
+      setLocation(data.location);
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +70,14 @@ function App() {
   return (
     <>
       <main>
-        <ListHeader isGoodWeather={isGoodWeather} />
+        <header className="header">
+          <ListHeader isGoodWeather={isGoodWeather} />
+        </header>
+        <section>
+          <h2>{temperature}°</h2>
+          <p>Location {location}</p>
+        </section>
+
         <section className="entries">
           <List
             activities={activities}

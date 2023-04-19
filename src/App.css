@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 main {
@@ -9,7 +10,7 @@ main {
   align-items: center;
   justify-content: center;
   max-width: 600px;
-  height: 100vh;
+  min-height: 100vh;
   /* Here starts when is good weather */
 
   background-color: #72a2c0;
@@ -22,4 +23,5 @@ main {
   width: 80%;
   border: 0.1em solid black;
   border-radius: 30px;
+  margin-top: 11vh;
 }
