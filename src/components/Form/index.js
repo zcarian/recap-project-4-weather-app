@@ -5,10 +5,13 @@ export default function Form({ onAddActivity }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
+    data.isForGoodWeather = Boolean(data.isForGoodWeather);
     onAddActivity(data);
+    console.log("data: ", data);
     event.target.reset();
-  }
 
+    // console.log("data is checked:", data.isForGoodWeather);
+  }
   return (
     <form onSubmit={handleSubmit}>
       <h1>Add new Activity</h1>

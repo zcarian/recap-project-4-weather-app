@@ -22,7 +22,6 @@ const initialActivities = [
     isForGoodWeather: false,
   },
 ];
-
 function App() {
   const [activities, setActivities] = useState(initialActivities);
   const [isGoodWeather, setIsGoodWeather] = useState();
@@ -33,29 +32,31 @@ function App() {
         "https://example-apis.vercel.app/api/weather"
       );
       const data = await response.json();
-      console.log("data fetched");
       setIsGoodWeather(data.isGoodWeather);
     } catch (error) {
       console.log(error);
     }
   }
+
   useEffect(() => {
     fetchWeather();
   }, []);
 
   function handleAddActivity(newActivity) {
     setActivities([{ id: uid(), ...newActivity }, ...activities]);
-    console.log("activities: ", activities);
   }
 
   function handleDeleteButton(id) {
     setActivities(activities.filter((activity) => activity.id !== id));
   }
-
   return (
     <>
-      <List activities={activities} onDeleteButton={handleDeleteButton} />
-      <Form onAddActivity={handleAddActivity} isGoodWeather={isGoodWeather} />
+      <List
+        activities={activities}
+        onDeleteButton={handleDeleteButton}
+        isGoodWeather={isGoodWeather}
+      />
+      <Form onAddActivity={handleAddActivity} />
     </>
   );
 }
