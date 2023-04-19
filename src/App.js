@@ -11,13 +11,19 @@ import useShowAll from "./utils/useShowAll";
 function App() {
   const [showAll, handleShowAllButton] = useShowAll();
 
-  const isGoodWeather = useFetch();
+  const [isGoodWeather, temperature, location, condition] = useFetch();
 
   const [activities, handleAddActivity, handleDeleteActivity] = useActivities();
 
   return (
-    <>
+    <main>
       <ListHeader isGoodWeather={isGoodWeather} />
+      <section>
+        <h2>{temperature}°</h2>
+        <p>Location {location}</p>
+        <span>{condition}</span>
+      </section>
+
       <List
         activities={activities}
         onDeleteButton={handleDeleteActivity}
@@ -29,7 +35,7 @@ function App() {
         ifShowAll={showAll}
       />
       <Form onAddActivity={handleAddActivity} />
-    </>
+    </main>
   );
 }
 

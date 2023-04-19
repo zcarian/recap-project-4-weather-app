@@ -1,3 +1,4 @@
+import "./showAllButton.css";
 export default function ShowAllButton({ onShowAllButton, ifShowAll }) {
   return (
     <button onClick={onShowAllButton}>

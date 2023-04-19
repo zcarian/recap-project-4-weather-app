@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 
 export default function useFetch() {
   const [isGoodWeather, setIsGoodWeather] = useState();
+  const [location, setLocation] = useState("");
+  const [temperature, setTemperature] = useState("");
+  const [condition, setCondition] = useState("");
 
   async function fetchWeather() {
     try {
@@ -11,6 +14,9 @@ export default function useFetch() {
       const data = await response.json();
       console.log("data fetched");
       setIsGoodWeather(data.isGoodWeather);
+      setTemperature(data.temperature);
+      setLocation(data.location);
+      setCondition(data.condition);
     } catch (error) {
       console.log(error);
     }
@@ -25,5 +31,5 @@ export default function useFetch() {
     },
     [] /*<= delete this when changing back to 5 sec intervall*/
   );
-  return isGoodWeather;
+  return [isGoodWeather, temperature, location, condition];
 }
