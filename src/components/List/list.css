@@ -5,6 +5,5 @@
 .entries ul {
   align-self: center;
   padding: 2rem;
-
-  gap: 2em;
+  width: 90%;
 }

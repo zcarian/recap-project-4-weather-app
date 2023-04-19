@@ -66,8 +66,8 @@ function App() {
   return (
     <>
       <main>
+        <ListHeader isGoodWeather={isGoodWeather} />
         <section className="entries">
-          <ListHeader isGoodWeather={isGoodWeather} />
           <List
             activities={activities}
             onDeleteButton={handleDeleteButton}

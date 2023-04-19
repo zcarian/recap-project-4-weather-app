@@ -3,16 +3,9 @@ li {
   flex-direction: row;
   justify-content: space-between;
   padding: 0.2em 0.4em;
-  border: black solid 0.1em;
+  border: rgb(251, 246, 246) solid 0.1em;
   border-radius: 30px;
   margin-top: 1em;
   align-items: center;
-}
-
-.entries ul button {
-  padding: 0.5em 0.5em;
-  background-color: transparent;
-  border: black solid 0.1em;
-  border-radius: 3em;
-  margin-left: 1em;
+  width: 100%;
 }

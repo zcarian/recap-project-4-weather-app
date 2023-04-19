@@ -9,14 +9,17 @@ main {
   align-items: center;
   justify-content: center;
   max-width: 600px;
+  height: 100vh;
+  /* Here starts when is good weather */
+
+  background-color: #72a2c0;
+  color: white;
 }
 
 .entries {
   display: flex;
   flex-direction: column;
-}
-
-.entries button {
-  align-self: flex-start;
-  padding: 0.3em 0.8em;
+  width: 80%;
+  border: 0.1em solid black;
+  border-radius: 30px;
 }
