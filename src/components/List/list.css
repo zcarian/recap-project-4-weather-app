@@ -6,4 +6,8 @@
   align-self: center;
   padding: 2rem;
   width: 90%;
+  overflow-y: scroll;
+}
+.entries ul::-webkit-scrollbar {
+  display: none;
 }

@@ -12,8 +12,7 @@ export default function useFetch() {
         "https://example-apis.vercel.app/api/weather"
       );
       const data = await response.json();
-      console.log(data);
-      console.log("data fetched");
+      console.log("Fetched data:",data);
       setIsGoodWeather(data.isGoodWeather);
       setTemperature(data.temperature);
       setLocation(data.location);
@@ -25,12 +24,13 @@ export default function useFetch() {
   useEffect(
     () => {
       fetchWeather();
+      //This is bonus task however we dont want to overload API again so for now it's fetching only once 
       // const interval = setInterval(() => {
       //   fetchWeather();
       // }, 5000);
       // return () => clearInterval(interval);
     },
-    [] /*<= delete this when changing back to 5 sec intervall*/
+    [] /*<= delete this when changing */
   );
   return [isGoodWeather, temperature, location, condition];
 }

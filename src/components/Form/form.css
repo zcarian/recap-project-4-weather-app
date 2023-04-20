@@ -10,7 +10,7 @@ form {
 }
 
 form h2 {
-  padding: 1em 2em;
+  padding: 0.5em 1em;
 }
 
 form label {
@@ -20,7 +20,7 @@ form label {
 form input {
   width: 80%;
   align-self: center;
-  margin: 2em;
+  margin: 1em;
   padding: 1em;
   border: solid 0.1em transparent;
   border-radius: 10px;
