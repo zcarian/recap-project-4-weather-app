@@ -14,8 +14,8 @@ export default function Form({ onAddActivity }) {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Add new Activity</h2>
-      <label htmlFor="name">Name</label>
-      <input type="text" id="name" name="name" />
+      <label htmlFor="name">Activity</label>
+      <input type="text" id="name" name="name" required/>
       <div className="checkbox">
         <label htmlFor="good-weather-activity">Good weather activity</label>
         <input

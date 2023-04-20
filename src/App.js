@@ -6,7 +6,7 @@ import ShowAllButton from "./components/ShowAllButton";
 import useFetch from "./utils/useFetch.js";
 import useActivities from "./utils/useActivities";
 import useShowAll from "./utils/useShowAll";
-import FetchedWeather from "./components/FetchedWeather/FetchedWeather";
+import FetchedWeather from "./components/FetchedWeather";
 
 function App() {
   const [showAll, handleShowAllButton] = useShowAll();

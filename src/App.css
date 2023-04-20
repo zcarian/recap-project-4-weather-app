@@ -11,7 +11,6 @@ main {
   justify-content: center;
   max-width: 600px;
   min-height: 100vh;
-
   background-color: #73b0d5;
   color: white;
   position: relative;
@@ -20,6 +19,7 @@ main {
 .entries {
   display: flex;
   flex-direction: column;
+  height: 30vh;
   width: 80%;
   border: 0.1em solid transparent;
   border-radius: 30px;
