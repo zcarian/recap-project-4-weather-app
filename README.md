@@ -1,5 +1,7 @@
 # Recap Project 4: Weather & Activities App
 
+![](https://github.com/zcarian/recap-project-4-weather-app/blob/main/public/Gifs/preview.gif)
+
 In this recap project, you'll work together with a partner: you'll create an app that fetches a
 weather object from an API and conditionally picks activities from a list to display as suggestions.
 You'll need to implement a feature that allows you to add more suggestions to the list of activities
